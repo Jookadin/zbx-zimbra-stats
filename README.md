@@ -5,21 +5,23 @@ Zabbix Template and script for monitoring Zimbra statistics (traffic and stats)
 
 Uses two scripts to populate item:  
 
- - zimbraTrafficStats.sh / userparameter_zimbra.traffic.conf - Zabbix UserParameter  
- - zimbraGetStats.sh / crontab.txt - cron and zabbix_sender
+ * zimbraTrafficStats.sh - Script using /opt/zimbra/common/bin/pflogsumm.pl
+   * userparameter_zimbra.traffic.conf - Zabbix UserParameter  
+ * zimbraGetStats.sh - Script using /opt/zimbra/bin/zmsoap and zabbix_sender
+    * crontab.txt - cron configuration
 
 ## Scripts
 
 Grabs info from these providers (Zimbra related tools):  
 
- - /opt/zimbra/bin/zmsoap -z -t admin GetServerStatsRequest  
- - /opt/zimbra/common/bin/pflogsumm.pl
+ * /opt/zimbra/bin/zmsoap -z -t admin GetServerStatsRequest  
+ * /opt/zimbra/common/bin/pflogsumm.pl
  
 ## Prerequisites
 
- - zabbix_sender
- - Grant the zabbix user sudo permissions to execute /opt/zimbra/common/bin/pflogsumm.pl
- - Replace Hostname in cron line to monitored hostname (has to match in Zabbix).
+ * zabbix_sender
+ * Grant the zabbix user sudo permissions to execute /opt/zimbra/common/bin/pflogsumm.pl
+ * Replace Hostname in cron line to monitored hostname (has to match in Zabbix).
  
 ## Screens
 ![alt_text](https://github.com/GOID1989/zbx-zimbra-stats/blob/master/stats.png)
