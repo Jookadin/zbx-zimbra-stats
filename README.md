@@ -5,8 +5,8 @@ Zabbix Template and script for monitoring Zimbra statistics (traffic and stats)
 
 Uses two scripts to populate item:  
 
- - zimbraTrafficStats.sh\zabbix_agent.txt - Zabbix UserParameter  
- - zimbraGetStats.sh\crontab.txt - cron and zabbix_sender
+ - zimbraTrafficStats.sh / userparameter_zimbra.traffic.conf - Zabbix UserParameter  
+ - zimbraGetStats.sh / crontab.txt - cron and zabbix_sender
 
 ## Scripts
 
@@ -29,7 +29,7 @@ Grabs info from these providers (Zimbra related tools):
 
 1. Import Template Zimbra Statistics.xml on the Zabbix Server.
 2. Copy all files to the monitored host.
-3. Copy and rename the zabbix\_agent.txt file into the includes folder (Default: /etc/zabbix/zabbix_agentd.d/)
+3. Copy userparameter file into the includes folder (Default: /etc/zabbix/zabbix_agentd.d/)
 4. Copy the script files into your Zabbix folder (Default: /etc/zabbix)
    1. Make sure the scripts are executable.
    2. Optional: create a scripts directory inside /etc/zabbix/
