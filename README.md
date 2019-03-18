@@ -2,16 +2,21 @@
 Zabbix Template and script for monitoring Zimbra statistics (traffic and stats)
 
 ## Template
+
 Uses two scripts to populate item:  
+
  - zimbraTrafficStats.sh\zabbix_agent.txt - Zabbix UserParameter  
  - zimbraGetStats.sh\crontab.txt - cron and zabbix_sender
 
 ## Scripts
+
 Grabs info from these providers (Zimbra related tools):  
+
  - /opt/zimbra/bin/zmsoap -z -t admin GetServerStatsRequest  
  - /opt/zimbra/common/bin/pflogsumm.pl
  
 ## Prerequisites
+
  - zabbix_sender
  - Grant the zabbix user sudo permissions to execute /opt/zimbra/common/bin/pflogsumm.pl
  - Replace Hostname in cron line to monitored hostname (has to match in Zabbix).
@@ -20,19 +25,19 @@ Grabs info from these providers (Zimbra related tools):
 ![alt_text](https://github.com/GOID1989/zbx-zimbra-stats/blob/master/stats.png)
 ![alt_text](https://github.com/GOID1989/zbx-zimbra-stats/blob/master/traffic.png)
 
-##HOWTO 
+## HOWTO 
 
 1. Import Template Zimbra Statistics.xml on the Zabbix Server.
 2. Copy all files to the monitored host.
-3. Copy and rename the zabbix\_agent.txt file into the includes folder (default /etc/zabbix/zabbix_agentd.d/)
+3. Copy and rename the zabbix\_agent.txt file into the includes folder (Default: /etc/zabbix/zabbix_agentd.d/)
 4. Copy the script files into your Zabbix folder (default /etc/zabbix)
- 1. Make sure the scripts are executable.
- 2. Optional: create a scripts directory inside /etc/zabbix/
+   1. Make sure the scripts are executable.
+   2. Optional: create a scripts directory inside /etc/zabbix/
 5. Grant the zabbix user sudo permissions to execute /opt/zimbra/common/bin/pflogsumm.pl
- 1. Make sure that the zabbix user can use passwordless sudo.
+   1. Make sure that the zabbix user can use passwordless sudo.
 6. Add the line from crontab.txt to the end of the zimbra users crontab.
- 1. Remember to change the hostname.
+   1. Remember to change the hostname.
 
-##Notes
+## Notes
+
 There's nothing here yet. :)
-
